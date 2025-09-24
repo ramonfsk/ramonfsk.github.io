@@ -1,17 +1,6 @@
 ---
-title: My Site
-toc: false
+title: Ramon's Blog
 ---
 
-This is the landing page.
-
-## Explore
-
-{{< cards >}}
-  {{< card link="docs" title="Docs" icon="book-open" >}}
-  {{< card link="about" title="About" icon="user" >}}
-{{< /cards >}}
-
-## Documentation
-
-For more information, visit [Hextra](https://imfing.github.io/hextra).
+## 2025 - September
+- [Bem Vindos](2025/09/21/bem-vindos/)
