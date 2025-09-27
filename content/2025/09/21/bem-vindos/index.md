@@ -12,6 +12,6 @@ Olá, esse é o meu primeiro post "oficial" nesse meu retorno a blogs desde a é
 
 Meu intuito de voltar a escrever é que eu sou um péssimo escritor e comunicador (sou programador 😅) e vejo que preciso melhorar isso, então porque não praticar não é mesmo?!
 
-Bem, quanto ao conteúdo desse blog pretendo escrever principalmente sobre tecnologia em geral, algumas coisas sobre animes e novidades que eu julhar relevantes, pois hoje em dia, estamos inundados de informações **rasas e desncessárias**.
+Bem, quanto ao conteúdo desse blog pretendo escrever principalmente sobre tecnologia em geral, algumas coisas sobre animes e novidades que eu julhar relevantes, pois hoje em dia, estamos inundados de informações **rasas e desnecessárias**.
 
 É isso, nos vemos logo mais! 😉
