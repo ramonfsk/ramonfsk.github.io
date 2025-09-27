@@ -30,7 +30,6 @@ menu:
         type: search
     - name: Theme Toggle
       params:
-
         type: theme-toggle
   sidebar:
     - name: GitHub
@@ -81,11 +80,11 @@ params:
     enable: false
     type: giscus
 
-  giscus:
-    repo: "ramonfsk/ramonfsk.github.io"
-    repoId: "R_kgDOP0HXcA"
-    category: "General"
-    categoryId: "DIC_kwDOP0HXcM4Cvt-h"
+    giscus:
+      repo: "ramonfsk/ramonfsk.github.io"
+      repoId: "R_kgDOP0HXcA"
+      category: "General"
+      categoryId: "DIC_kwDOP0HXcM4Cvt-h"
 
   author:
   name: Ramon Ferreira
