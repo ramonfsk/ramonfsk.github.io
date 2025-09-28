@@ -7,7 +7,7 @@ tags:
 - technology
 - software-engineer
 - carrer
-draft: true
+draft: false
 ---
 
 Bem nesses mais de seis anos desenvolvendo para o mercado mobile e em grande maioria para bancos, sempre me perguntaram por qual plataforma faria mais sentido inciar a carreira como mobile developer no Brasil e mesmo eu sendo desenvolvedor iOS sempre continuo recomendado iniciar pelo **Android**.
