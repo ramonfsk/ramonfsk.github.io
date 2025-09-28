@@ -87,7 +87,7 @@ params:
       categoryId: "DIC_kwDOP0HXcM4Cvt-h"
 
   author:
-  name: Ramon Ferreira
-  email: ramonfsk@gmail.com
+    name: Ramon Ferreira
+    email: ramonfsk@gmail.com
 
   description: "Blog do Ramon, escrevo sobre tecnologia em geral e mais alguns assuntos que me interessam. ;)"
