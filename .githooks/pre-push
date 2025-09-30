@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Running update_index.sh..."
+./scripts/update_index.sh
+
+# Check if there are changes to _index.md
+if git diff --quiet content/_index.md; then
+    echo "No changes to _index.md"
+    exit 0
+else
+    echo "Changes detected in _index.md"
+    git add content/_index.md
+    git commit -m "Update _index.md [automated]"
+    # Need to push the new commit
+    git push
+fi
