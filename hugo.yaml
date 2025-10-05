@@ -1,7 +1,11 @@
 # Hugo configuration file
 title: Home
 
-# import hextra as module
+languageCode: "pt-BR"
+
+outputs:
+  home: [HTML]
+
 module:
   imports:
     - path: github.com/imfing/hextra
@@ -33,12 +37,12 @@ menu:
         type: theme-toggle
   sidebar:
     - name: GitHub
-      weight: 4
+      weight: 1
       url: "https://github.com/ramonfsk"
       params:
         icon: github
     - name: Bluesky
-      weight: 5
+      weight: 2
       url: "https://bsky.app/profile/ramonfsk.bsky.social"
       params:
         icon: bluesky
@@ -60,6 +64,7 @@ params:
 
     flexsearch:
       index: content
+      tokenize: forward
 
   theme:
     default: light
