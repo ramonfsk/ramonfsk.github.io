@@ -29,7 +29,7 @@ find "$CONTENT_DIR" -name "*.md" ! -name "_index.md" | while read -r file; do
             echo "$year $month|$title|$rel_path"
         fi
     fi
-done | sort -r | awk -F'|' '
+done | sort | awk -F'|' '
     {
         year_month = $1
         if (year_month != prev_year_month) {
