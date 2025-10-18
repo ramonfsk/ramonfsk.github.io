@@ -1,5 +1,5 @@
 ---
-title: "Dicas para manutenção em Pcs"
+title: Dicas para manutenção em PCs
 date: 2025-10-04T20:28:00-03:00
 slug: dicas-para-manutencao-em-pcs
 comments: true
