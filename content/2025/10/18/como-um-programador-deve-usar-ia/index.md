@@ -307,7 +307,7 @@ Vamos ver o que acontece quando o usuário faz o swipe:
 
 ## Demonstração em Vídeo
 
-![Demo do Gesto Global](https://drive.google.com/uc?export=view&id=1jDbL3UHmeNJ6IbtC-rzJDOLINk0TbyQ2)
+![Demo do Gesto Global](https://i.imgur.com/eHbdb9W.mp4)
 
 *Vídeo mostrando o gesto funcionando em diferentes tabs e telas aninhadas*
 
