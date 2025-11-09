@@ -3,6 +3,9 @@
 CONTENT_DIR="../content"
 INDEX_FILE="$CONTENT_DIR/_index.md"
 
+# Enable debug mode
+set -x
+
 # Create header of index file
 cat > "$INDEX_FILE" << EOF
 ---
@@ -10,32 +13,40 @@ title: Ramon's Blog
 ---
 EOF
 
-# Find all markdown files (excluding _index.md), sort them by date
-find "$CONTENT_DIR" -name "*.md" ! -name "_index.md" | while read -r file; do
-    # Extract date from path (YYYY/MM/DD)
-    if [[ $file =~ ([0-9]{4})/([0-9]{2})/([0-9]{2}) ]]; then
+# First, collect and sort all year/month combinations in reverse order (newest first)
+find "$CONTENT_DIR" -type f -name "*.md" ! -name "_index.md" | while read -r file; do
+    if [[ $file =~ ([0-9]{4})/([0-9]{2}) ]]; then
+        # Create sortable string with year and month
         year="${BASH_REMATCH[1]}"
-        month="$(date -j -f "%m" "${BASH_REMATCH[2]}" "+%B")"
-        
-        # Extract title from frontmatter - looking for the line after "title: "
-        title=$(sed -n '/^title:/s/^title: //p' "$file")
-        
-        # Get relative path without 'index' at the end
-        rel_path=${file#"$CONTENT_DIR/"}
-        rel_path=${rel_path%/index.md}
-        
-        # Store in array with date for sorting
-        if [ ! -z "$title" ]; then
-            echo "$year $month|$title|$rel_path"
-        fi
+        month="${BASH_REMATCH[2]}"
+        month_name="$(date -j -f "%m" "$month" "+%B")"
+        echo "${year}${month}|${year} ${month_name}"
     fi
-done | sort | awk -F'|' '
-    {
-        year_month = $1
-        if (year_month != prev_year_month) {
-            print "\n## " year_month
-            prev_year_month = year_month
-        }
-        print "- [" $2 "](" $3 ")"
-    }
-' >> "$INDEX_FILE"
+done | sort -nr | uniq > /tmp/months.txt
+
+# Then process files for each month
+while IFS='|' read -r sort_key year_month; do
+    echo -e "\n## $year_month" >> "$INDEX_FILE"
+    
+    year=${sort_key:0:4}
+    month=${sort_key:4:2}
+    
+    # Find and sort posts for this month
+    find "$CONTENT_DIR" -type f -name "*.md" ! -name "_index.md" | while read -r file; do
+        if [[ $file =~ $year/$month/([0-9]{2}) ]]; then
+            day="${BASH_REMATCH[1]}"
+            title=$(grep -m 1 "^title:" "$file" | sed 's/^title: *//')
+            rel_path=${file#"$CONTENT_DIR/"}
+            rel_path=${rel_path%/index.md}
+            
+            if [ ! -z "$title" ]; then
+                echo "${day}|${title}|${rel_path}"
+            fi
+        fi
+    done | sort -nr | while IFS='|' read -r day title path; do
+        echo "- [$title]($path)" >> "$INDEX_FILE"
+    done
+done < /tmp/months.txt
+
+rm /tmp/months.txt
+set +x
